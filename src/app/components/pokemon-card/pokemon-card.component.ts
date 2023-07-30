@@ -1,5 +1,9 @@
 import { Component, Input } from "@angular/core";
-import { Pokemon } from "src/_models/pokemon.models";
+import {
+  Pokemon,
+  getPokemonImage,
+  getPokemonNumber,
+} from "src/_models/pokemon.models";
 
 @Component({
   selector: "app-pokemon-card",
@@ -9,11 +13,6 @@ import { Pokemon } from "src/_models/pokemon.models";
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
 
-  leadingZero(str: string | number, size: number = 3): string {
-    let s = String(str);
-    while (s.length < (size || 2)) {
-      s = "0" + s;
-    }
-    return s;
-  }
+  public getPokemonImage = getPokemonImage;
+  public getPokemonNumber = getPokemonNumber;
 }
